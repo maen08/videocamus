@@ -5,8 +5,10 @@ from slugify import slugify
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from camus import db
+# from camus.vidoco import db
+import custom_db
 
+db = custom_db.db
 
 class Room(db.Model):
     __tablename__ = 'rooms'

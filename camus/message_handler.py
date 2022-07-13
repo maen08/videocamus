@@ -4,9 +4,17 @@ import json
 import logging
 from collections import defaultdict
 
-from camus import db
-from camus.models import Client
-from camus.util import commit_database, get_ice_servers
+# from camus import db
+# import db
+# from camus.models import Client
+import models
+import util
+# from camus.util import commit_database, get_ice_servers
+
+
+Client = models.Client
+commit_database = util.commit_database
+get_ice_servers = util.get_ice_servers
 
 
 class MessageHandler:

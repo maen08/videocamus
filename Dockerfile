@@ -19,4 +19,4 @@ RUN apk update && \
     pip install psycopg2 --no-cache-dir --no-deps --no-binary :all: && \
     pip install /root/camus*.tar.gz && \
     apk --purge del .build-deps
-CMD /usr/local/bin/hypercorn "camus:create_app()" --log-file - -b 0.0.0.0:$PORT
+CMD /usr/local/bin/hypercorn "vidoco:create_app()" --log-file - -b 0.0.0.0:$PORT

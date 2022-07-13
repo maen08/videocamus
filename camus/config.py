@@ -19,3 +19,7 @@ class Config(object):
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
     WTF_CSRF_ENABLED = False
+
+
+
+

@@ -2,13 +2,25 @@ import asyncio
 import logging
 
 import sqlalchemy
+# from camus.vidoco import db
+import custom_db
+db = custom_db.db
+
 from quart import (Blueprint, copy_current_websocket_context, flash, redirect,
                    render_template, session, websocket)
 
-from camus import db, message_handler
-from camus.forms import CreateRoomForm, JoinRoomForm
-from camus.models import Client, Room
-from camus.util import commit_database
+# from camus import message_handler
+import message_handler, forms, util, models
+
+# from camus.forms import CreateRoomForm, JoinRoomForm
+# from camus.models import Client, Room
+# from camus.util import commit_database
+
+CreateRoomForm = forms.CreateRoomForm
+Client = models.Client
+commit_database = util.commit_database
+JoinRoomForm = forms.JoinRoomForm
+Room = models.Room
 
 bp = Blueprint('main', __name__)
 

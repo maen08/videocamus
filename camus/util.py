@@ -12,9 +12,14 @@ from twilio.base.exceptions import TwilioException, TwilioRestException
 from quart import current_app
 from sqlalchemy.exc import SQLAlchemyError
 
-from camus import db
-from camus.models import Client, Room
+# from camus.vidoco import db
+import custom_db
+import models
+# from camus.models import Client, Room
 
+Client = models.Client
+Room = models.Room
+db = custom_db.db
 
 class LoopTimer:
     """Run a task repeatedly at spaced intervals.

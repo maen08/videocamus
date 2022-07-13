@@ -3,7 +3,7 @@ import json
 
 import pytest
 
-from camus import db
+from camus.vidoco import db
 from camus.message_handler import Message
 from camus.models import Client, Room
 
