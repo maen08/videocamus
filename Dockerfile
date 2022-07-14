@@ -19,4 +19,13 @@ RUN apk update && \
     pip install psycopg2 --no-cache-dir --no-deps --no-binary :all: && \
     pip install /root/camus*.tar.gz && \
     apk --purge del .build-deps
-CMD /usr/local/bin/hypercorn "vidoco:create_app()" --log-file - -b 0.0.0.0:$PORT
+
+# CMD /usr/local/bin/hypercorn "camus/vidoco:create_app()" --log-file - -b 0.0.0.0:$PORT
+
+COPY . /app
+
+RUN chmod +x /app/entrypoint.sh
+
+# ENTRYPOINT [ "/app/entrypoint.sh" ]
+
+CMD [ "sh", "/app/entrypoint.sh"]
